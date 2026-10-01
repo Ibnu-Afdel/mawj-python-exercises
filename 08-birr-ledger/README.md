@@ -56,8 +56,9 @@ Run the program again tomorrow and they're still there.
 
 Build it in this order, running it after each step:
 
-1. **The data shape.** Write `add_expense`. In `main()`, add two expenses to an
-   empty list and print the list.
+1. **The data shape.** Write `add_expense`. Test it with a few lines at the
+   bottom of the file: add two expenses to an empty list and print how many there
+   are. (These test lines print only until `main()` takes over in milestone 3.)
 2. **Save and load.** Write `save_expenses` and `load_expenses`. Run twice: the
    second run should load what the first one saved. Open `ledger.json` and read
    it.
