@@ -4,8 +4,8 @@ See README.md in this folder for what to build. Keep the names below exactly:
 the next versions of Birr Ledger build on them.
 """
 
+import datetime
 import json
-from datetime import date
 from pathlib import Path
 
 # Saved next to this file, whatever folder the terminal is in.
@@ -28,14 +28,14 @@ def save_expenses(expenses):
     pass
 
 
-def add_expense(expenses, amount, category, note):
-    """Add one expense to the list, dated today.
+def add_expense(expenses, amount, category, note, date=None):
+    """Add one expense to the list, dated `date` (text like "2026-10-01").
 
-    Each expense is a dict:
+    With no date, it's dated today. Each expense is a dict:
     {"date": "2026-10-01", "amount": 250, "category": "food", "note": "ቡና"}
     """
-    # TODO: build the dict (date.today().isoformat() gives today's date as text)
-    # and append it to expenses.
+    # TODO: if date is None, use datetime.date.today().isoformat();
+    # then build the dict and append it to expenses.
     pass
 
 

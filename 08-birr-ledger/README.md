@@ -48,7 +48,7 @@ Run the program again tomorrow and they're still there.
 | `LEDGER_FILE` | Where the ledger is saved: `ledger.json` next to `ledger.py`. |
 | `load_expenses()` | Returns the list of expenses from `LEDGER_FILE` (an empty list if the file doesn't exist). |
 | `save_expenses(expenses)` | Writes the list to `LEDGER_FILE` as JSON. |
-| `add_expense(expenses, amount, category, note)` | Adds one expense dict, dated today, to the list. |
+| `add_expense(expenses, amount, category, note, date=None)` | Adds one expense dict to the list, dated `date`, or today when `date` is left out. |
 | `total_by_category(expenses)` | Returns a dict: category to total birr, like `{"food": 380, "transport": 40}`. |
 | `main()` | The menu: asks for commands, calls the functions, prints results. |
 
@@ -77,5 +77,8 @@ Build it in this order, running it after each step:
 
 - `LEDGER_FILE = Path(__file__).parent / "ledger.json"` saves next to the
   script, whatever folder your terminal is in (lesson 8.2).
-- Today's date as text: `date.today().isoformat()` (from `datetime import date`).
+- Today's date as text: `datetime.date.today().isoformat()`, after `import datetime`.
+  (`from datetime import date` would clash with the parameter named `date`.)
+- Test with a fixed date, like `add_expense(expenses, 250, "food", "ቡና", "2026-10-01")`,
+  so you know exactly what it should print.
 - `ledger.json` is in `.gitignore`, so your own expenses are never committed.
