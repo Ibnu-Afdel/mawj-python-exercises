@@ -30,5 +30,7 @@ def test_total_by_category():
 # (and let main() handle the error).
 
 # Milestone 5: save sample_expenses to a file in tmp_path and load it back;
-# then load a file that doesn't exist. Also check that the saved file's text
-# keeps the Amharic notes readable.
+# then load a file that doesn't exist.
+
+# Milestone 6: plant the bugs from README.md one at a time, and add a test for
+# any bug that gets through.

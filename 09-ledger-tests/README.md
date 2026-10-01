@@ -41,7 +41,7 @@ report the website shows, run `uv run pytest -q`.
 | `sample_expenses` | Your fixture (milestone 2): 8.9's three expenses. |
 
 The tests go in `test_ledger.py`. pytest finds files named `test_*.py` and runs
-functions named `test_*`.
+the functions in them whose names start with `test`.
 
 ## What the suite must test
 
@@ -61,16 +61,18 @@ Run `uv run pytest` after each one.
    category's total. `2 passed`.
 2. **The fixture.** Write `sample_expenses` with `@pytest.fixture` (it needs
    `import pytest`): 8.9's three expenses, made with `add_expense` and fixed
-   dates. Make both tests use it.
+   dates. Make both tests use it. `2 passed`.
 3. **Totals.** One test with `@pytest.mark.parametrize` over each category's
-   total, including one with no expenses, and a test for an empty ledger.
+   total, including one with no expenses, and a test for an empty ledger. A test
+   can take a fixture and parametrize's names together:
+   `def test_category_total(sample_expenses, category, expected):`. `6 passed`.
 4. **Bad amounts, test-first.** Test that `add_expense` raises `ValueError` for 0
-   and -50. Run it: it fails with `DID NOT RAISE`, because v1 accepts any whole
-   number. That's a real bug. Fix it in `ledger.py`: `add_expense` raises the
+   and -50 (the rule: an amount must be more than 0). Run it: `2 failed, 6 passed`,
+   with `DID NOT RAISE`, because v1 accepts any whole number. That's a real bug. Fix it in `ledger.py`: `add_expense` raises the
    error, and `main()` catches it, says the expense wasn't added, and saves
    nothing.
-5. **Files.** Round trips with `tmp_path`, a missing file, and a check that the
-   saved text still has the Amharic notes in it.
+5. **Files.** A round trip with `tmp_path` (save `sample_expenses`, load it back,
+   compare), and loading a file that doesn't exist. `10 passed`.
 6. **Check your suite.** Plant each bug below in `ledger.py`, one at a time, and
    run the tests. At least one test should fail every time. Undo each bug after.
    - In `total_by_category`, loop over `expenses[:-1]` (the last expense is
@@ -79,7 +81,10 @@ Run `uv run pytest` after each one.
      `\u` escapes).
    - In `load_expenses`, remove the `try`/`except` (a missing file crashes).
 
-   If a bug gets through, add the test that catches it.
+   The Milestone 5 suite misses the second bug: escaped Amharic loads back the
+   same, so the round trip still passes. Add a test that reads the saved file's
+   text and checks the Amharic is in it. If any other bug gets through, add the
+   test that catches it.
 
 ## Hints
 
