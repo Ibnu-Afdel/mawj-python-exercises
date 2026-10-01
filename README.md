@@ -25,6 +25,7 @@ laptop that isn't yours to set up.
    `uv` ready. Open a terminal with **Ctrl + `** (backtick) and try:
    ```
    python --version
+   uv --version
    cd 08-birr-ledger
    python ledger.py
    ```
