@@ -1,0 +1,11 @@
+[project]
+name = "ledger-tests"
+version = "0.1.0"
+description = "A pytest suite for Birr Ledger v1 (Mawj Python course, lesson 9.5)."
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]

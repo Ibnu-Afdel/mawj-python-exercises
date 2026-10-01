@@ -46,8 +46,8 @@ Run the program again tomorrow and they're still there.
 | Name | What it is |
 | --- | --- |
 | `LEDGER_FILE` | Where the ledger is saved: `ledger.json` next to `ledger.py`. |
-| `load_expenses()` | Returns the list of expenses from `LEDGER_FILE` (an empty list if the file doesn't exist). |
-| `save_expenses(expenses)` | Writes the list to `LEDGER_FILE` as JSON. |
+| `load_expenses(path=LEDGER_FILE)` | Returns the list of expenses from the file at `path` (an empty list if the file doesn't exist). |
+| `save_expenses(expenses, path=LEDGER_FILE)` | Writes the list to the file at `path` as JSON. |
 | `add_expense(expenses, amount, category, note, date=None)` | Adds one expense dict to the list, dated `date`, or today when `date` is left out. |
 | `total_by_category(expenses)` | Returns a dict: category to total birr, like `{"food": 380, "transport": 40}`. |
 | `main()` | The menu: asks for commands, calls the functions, prints results. |
@@ -75,6 +75,9 @@ Build it in this order, running it after each step:
 
 ## Hints
 
+- `path=LEDGER_FILE` in `load_expenses` and `save_expenses` means the program
+  leaves the path out and uses the real file, while a test (Module 9) can pass a
+  file of its own, the same idea as `date=None`.
 - `LEDGER_FILE = Path(__file__).parent / "ledger.json"` saves next to the
   script, whatever folder your terminal is in (lesson 8.2).
 - Today's date as text: `datetime.date.today().isoformat()`, after `import datetime`.

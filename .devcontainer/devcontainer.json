@@ -3,6 +3,10 @@
   "name": "Mawj Python exercises",
   // uv is part of the image (see the Dockerfile), so it's there before any terminal opens.
   "build": { "dockerfile": "Dockerfile" },
+  // The workspace is a different filesystem from uv's cache, so uv can't hardlink
+  // packages into a project's .venv; copying is what it falls back to anyway, and
+  // this setting keeps it from warning about it on every first `uv run`.
+  "containerEnv": { "UV_LINK_MODE": "copy" },
   "customizations": {
     "vscode": {
       "extensions": ["ms-python.python", "ms-python.vscode-pylance", "ms-python.debugpy"],

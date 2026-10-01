@@ -4,10 +4,14 @@ Practice projects for the free [Mawj Python course](https://mawj.ibnuafdel.com/c
 Each folder is one project, named after the module it belongs to. It has a
 README with what to build and a starter file with the function names already
 in place. There are no solutions here: the lessons walk you through each one.
+(The one exception is `09-ledger-tests`, which tests a finished Birr Ledger v1,
+so it includes one.)
 
 Projects:
 - [`08-birr-ledger`](08-birr-ledger/): Birr Ledger, a personal expense tracker
   that remembers your expenses between runs (Module 8, lesson 8.9).
+- [`09-ledger-tests`](09-ledger-tests/): a pytest test suite for Birr Ledger v1,
+  run with `uv run pytest` (Module 9, lesson 9.5).
 
 You need Python 3.14 and an editor. Pick one of the two ways below.
 

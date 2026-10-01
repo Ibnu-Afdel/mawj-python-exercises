@@ -12,18 +12,19 @@ from pathlib import Path
 LEDGER_FILE = Path(__file__).parent / "ledger.json"
 
 
-def load_expenses():
-    """Return the list of expenses saved in LEDGER_FILE.
+def load_expenses(path=LEDGER_FILE):
+    """Return the list of expenses saved in the file at `path`.
 
+    The program leaves `path` out, so it's LEDGER_FILE; a test passes its own file.
     If the file doesn't exist yet, return an empty list.
     """
-    # TODO: open LEDGER_FILE with encoding="utf-8" and json.load it.
+    # TODO: open path with encoding="utf-8" and json.load it.
     # TODO: catch FileNotFoundError (lesson 7.2) and return [] instead.
     pass
 
 
-def save_expenses(expenses):
-    """Write the list of expenses to LEDGER_FILE as JSON."""
+def save_expenses(expenses, path=LEDGER_FILE):
+    """Write the list of expenses to the file at `path` (LEDGER_FILE unless given) as JSON."""
     # TODO: json.dump with ensure_ascii=False and indent=2.
     pass
 
