@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Virtual environments (uv makes .venv; never commit one)
+.venv/
+venv/
+env/
+
+# Tools
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Editors and systems
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Your own ledger data stays on your machine
+ledger.json

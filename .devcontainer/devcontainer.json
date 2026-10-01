@@ -1,0 +1,19 @@
+{
+  // Python 3.14 (the version the Mawj course uses), VS Code's Python extension, and uv.
+  "name": "Mawj Python exercises",
+  "image": "mcr.microsoft.com/devcontainers/python:3.14-trixie",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python"
+      }
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+  // uv's documented install from PyPI; pipx comes with this image.
+  "postCreateCommand": "pipx install uv",
+  "remoteUser": "vscode"
+}
